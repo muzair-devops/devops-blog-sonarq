@@ -11,34 +11,6 @@
         rel="stylesheet">
 
     <script>
-        async function countWebsiteVisits() {
-            const counterElement = document.getElementById("visitCount");
-
-            try {
-                // Call your Lambda function (public URL)
-                const response = await fetch("https://tkqldmmljbbju4jcual2zjavsq0tmgqi.lambda-url.us-east-1.on.aws");
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                // Extract the visitor count from Lambda response
-                const count = data.visitCount || 0;
-
-                // Show it on your webpage
-                counterElement.textContent = count;
-
-                console.log("Visitor count:", count);
-            } catch (error) {
-                console.error("Error fetching visitor count:", error);
-                counterElement.textContent = "Error loading count";
-            }
-        }
-
-        // Run automatically after page load
-        window.onload = countWebsiteVisits;
     </script>
 </head>
 
@@ -62,7 +34,6 @@
             <h1>Explore the World of DevOps</h1>
             <p>Your ultimate resource for continuous integration, delivery, and deployment.</p>
             <a href="#" class="btn btn-primary">Discover More</a>
-            <div id="visitCountView"> Vistor count: <span id="visitCount">0</span></div>
         </div>
     </section>
 
